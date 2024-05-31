@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AquaPulse</title>
+</head>
+<body oncontextmenu="return false">
+    <div class="container">
+        <h1>Underwater Videos</h1>
+        <div id="video_player">
+            <video controls poster="" class="video" id="video">
+                <source src="./media/ccocococo.mp4" type="video/mp4">
+                <source src="./media/ccocococo.mp4" type="video/mp4">
+            </video>
+            <div class="scrollBox">
+                <div class="box">
+                    <img src="./img/m1.jpg">
+                    <div class="box-content">
+                        <h3>Turn around underwater</h3>
+                        <a href="./media/ccocococo.mp4" class="btn">Watch</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./img/m4.jpg">
+                    <div class="box-content">
+                        <h3>Reflection of sunlight</h3>
+                        <a href="./media/feels.mp4" class="btn">Watch</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./img/m5.jpg">
+                    <div class="box-content">
+                        <h3>Sanctuary</h3>
+                        <a href="./media/doneeober.mp4" class="btn">Watch</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./img/m2.jpg">
+                    <div class="box-content">
+                        <h3>Someday/itsuka</h3>
+                        <a href="./media/itsuka.mp4" class="btn">Watch</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./img/m3.jpg">
+                    <div class="box-content">
+                        <h3>Sardines Run</h3>
+                        <a href="./media/jidi.mp4"class="btn">Watch</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./img/m6.jpg">
+                    <div class="box-content">
+                        <h3>Turtle</h3>
+                        <a href="./media/ffff.mp4" class="btn">Watch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let anchors = document.querySelectorAll('div .btn');
+    let links = [...anchors];
+    
+    for (let i=0; i<links.length; i++) {
+        links[i].onclick = handler;
+    }
+    function handler(e) {
+        e.preventDefault();
+        let videotarget = this.getAttribute("href");
+        let filename = videotarget.substr(0, videotarget.lastIndexOf('.'));
+        let video = document.getElementById("video");
+        video.removeAttribute("poster");
+        let source = document.querySelectorAll("#video_player video source");
+        source[0].src = filename + ".mp4";
+        source[1].src = filename + ".m4v";
+        video.load();
+        video.play();
+    }
+    </script>
+</body>
+</html>
